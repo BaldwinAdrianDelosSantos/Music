@@ -43,6 +43,7 @@
     let isFullscreen = false;
     let introTimeline = null;
     let lottieAnimation = null;
+    const isMobile = /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) || ('ontouchstart' in window && window.innerWidth <= 768);
 
     // ─────────────────────────────────────
     // Reduced Motion
@@ -198,20 +199,32 @@
     // Fullscreen
     // ─────────────────────────────────────
     function requestFullscreen() {
+        if (isMobile) {
+            isFullscreen = true;
+            return;
+        }
+
         const el = videoContainer;
         if (!el) return;
 
         if (el.requestFullscreen) {
-            el.requestFullscreen().catch(() => {});
+            el.requestFullscreen().catch(() => { isFullscreen = true; });
         } else if (el.webkitRequestFullscreen) {
             el.webkitRequestFullscreen();
         } else if (el.msRequestFullscreen) {
             el.msRequestFullscreen();
+        } else {
+            isFullscreen = true;
         }
         isFullscreen = true;
     }
 
     function exitFullscreen() {
+        if (isMobile) {
+            isFullscreen = false;
+            return;
+        }
+
         if (document.exitFullscreen) {
             document.exitFullscreen();
         } else if (document.webkitExitFullscreen) {
@@ -503,7 +516,7 @@
                 resolve();
             };
             video.addEventListener('playing', onPlaying, { once: true });
-            setTimeout(resolve, 300);
+            setTimeout(resolve, 400);
         });
 
         requestFullscreen();
