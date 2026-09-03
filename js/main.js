@@ -287,7 +287,6 @@
         const tl = gsap.timeline({
             defaults: { ease: 'power4.inOut' },
             onComplete: () => {
-                exitFullscreen();
                 videoSection.classList.remove('active');
                 finalScreen.classList.add('active');
                 showFinalScreen();
@@ -518,8 +517,6 @@
             video.addEventListener('playing', onPlaying, { once: true });
             setTimeout(resolve, 400);
         });
-
-        requestFullscreen();
 
         lottieSection.classList.remove('active');
         videoSection.classList.add('active');
