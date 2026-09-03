@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>A Little Edit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+    <div class="grain-overlay" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="ambient-glow" aria-hidden="true"></div>
+
+    <main class="main" id="main">
+        <section class="intro" id="intro">
+            <div class="intro__content">
+                <p class="intro__eyebrow">A LITTLE EDIT</p>
+                <h1 class="intro__title">
+                    <span class="intro__line">something</span>
+                    <span class="intro__line">is waiting</span>
+                    <span class="intro__line">for you.</span>
+                </h1>
+                <button class="play-btn" id="playBtn" aria-label="Play video">
+                    <span class="play-btn__circle">
+                        <span class="play-btn__text">PLAY</span>
+                    </span>
+                </button>
+            </div>
+            <div class="intro__footer">
+                <span class="intro__scroll">TAP TO BEGIN</span>
+                <span class="intro__counter">01 / 01</span>
+            </div>
+        </section>
+
+        <section class="lottie-section" id="lottieSection" aria-label="Animation">
+            <div class="lottie-container" id="lottieContainer"></div>
+        </section>
+
+        <section class="video-section" id="videoSection" aria-label="Video presentation">
+            <div class="video-wrapper">
+                <div class="video-container" id="videoContainer">
+                    <video
+                        id="mainVideo"
+                        src="assets/video.mp4"
+                        playsinline
+                        webkit-playsinline
+                        preload="auto"
+                        muted
+                    ></video>
+                    <div class="video__progress" id="videoProgress">
+                        <div class="video__progress-fill" id="videoProgressFill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-ui" id="videoUi">
+                <div class="video-ui__top">
+                    <span class="video-ui__top-left">A LITTLE EDIT</span>
+                    <span class="video-ui__top-right">01</span>
+                </div>
+                <div class="video-ui__bottom">
+                    <span class="video-ui__bottom-left" id="videoStatus">PLAYING</span>
+                    <span class="video-ui__bottom-right" id="videoTime">00:00 / 00:00</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-screen" id="finalScreen">
+            <div class="final-screen__content">
+                <p class="final-screen__eyebrow">ONE LAST THING</p>
+                <h1 class="final-screen__title">I wanted you to see this first.</h1>
+                <p class="final-screen__description">Some things are easier to show than to say.</p>
+                <button class="replay-btn" id="replayBtn" aria-label="Replay video">
+                    <span class="replay-btn__text">REPLAY EDIT</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
